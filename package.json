@@ -4,7 +4,46 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "nodemon --watch main.js --exec \"electron .\"",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "SimpleMusicPlayer",
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "dmg": {
+      "background": "build/appdmg.png",
+      "icon": "build/icon.icns",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 380,
+          "y": 280,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 110,
+          "y": 280,
+          "type": "file"
+        }
+      ],
+      "window": {
+        "width": 500,
+        "height": 500
+      }
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "squirrel",
+      "icon": "build/icon.ico"
+    }
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -14,9 +53,16 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
+  "author": "DECENT",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^9.0.3"
+    "electron": "^9.0.3",
+    "electron-builder": "^22.7.0",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "electron-store": "^5.2.0",
+    "uuid": "^8.1.0"
   }
 }
