@@ -56,7 +56,7 @@
   "author": "DECENT",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^9.0.3",
+    "electron": "^15.5.5",
     "electron-builder": "^22.7.0",
     "nodemon": "^2.0.4"
   },
